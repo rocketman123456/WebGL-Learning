@@ -225,7 +225,7 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
 
     // Set the drawing position to the "identity" point, which is
     // the center of the scene.
-    const modelViewMatrix = mat4.create();
+    const modelViewMatrix = glMatrix.mat4.create();
 
     // Now move the drawing position a bit to where we want to
     // start drawing the square.
