@@ -62,7 +62,7 @@ function main() {
     // Here's where we call the routine that builds all the
     // objects we'll be drawing.
     const buffers = initBuffers(gl);
-    const texture = loadTexture(gl, 'https://raw.githubusercontents.com/rocketman123456/WebGL-Learning/master/lesson05/container.jpg');
+    const texture = loadTexture(gl, 'https://raw.githubusercontents.com/rocketman123456/WebGL-Learning/master/lesson05/container.jpg', true);
 
     var then = 0;
 
@@ -210,10 +210,7 @@ function initBuffers(gl) {
 // Initialize a texture and load an image.
 // When the image finished loading copy it into the texture.
 //
-function loadTexture(gl, url) {
-    const texture = gl.createTexture();
-    gl.bindTexture(gl.TEXTURE_2D, texture);
-
+function loadTexture(gl, url, cross) {
     // Because images have to be download over the internet
     // they might take a moment until they are ready.
     // Until then put a single pixel in the texture so we can
@@ -227,9 +224,11 @@ function loadTexture(gl, url) {
     const srcFormat = gl.RGBA;
     const srcType = gl.UNSIGNED_BYTE;
     const pixel = new Uint8Array([0, 0, 255, 255]);  // opaque blue
+
+    const texture = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
-        width, height, border, srcFormat, srcType,
-        pixel);
+        width, height, border, srcFormat, srcType, pixel);
 
     const image = new Image();
     image.onload = function () {
@@ -251,6 +250,9 @@ function loadTexture(gl, url) {
             gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
         }
     };
+    if(cross) {
+        image.crossOrigin = "anonymous";
+    }
     image.src = url;
 
     return texture;
