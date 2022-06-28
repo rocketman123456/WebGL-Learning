@@ -62,7 +62,7 @@ function main() {
     // Here's where we call the routine that builds all the
     // objects we'll be drawing.
     const buffers = initBuffers(gl);
-    const texture = loadTexture(gl, 'https://raw.githubusercontent.com/rocketman123456/WebGL-Learning/master/lesson05/container.jpg');
+    const texture = loadTexture(gl, 'https://raw.githubusercontents.com/rocketman123456/WebGL-Learning/master/lesson05/container.jpg');
 
     var then = 0;
 
