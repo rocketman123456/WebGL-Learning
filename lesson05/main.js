@@ -206,7 +206,7 @@ function initBuffers(gl) {
     };
 }
 
-function handleTextureLoaded(image, texture) {
+function handleTextureLoaded(gl, image, texture) {
     gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
         srcFormat, srcType, image);
@@ -253,7 +253,7 @@ function loadTexture(gl, url) {
 
     const image = new Image();
     image.onload = function () {
-        handleTextureLoaded(image, texture);
+        handleTextureLoaded(gl, image, texture);
     };
     image.src = url;
 
