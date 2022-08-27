@@ -80,7 +80,7 @@ function main() {
 
     const texture = initTexture(gl);
 
-    const video = setupVideo('https://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v');
+    const video = setupVideo('/upload/2022/08/Firefox.mp4');
 
     var then = 0;
 
