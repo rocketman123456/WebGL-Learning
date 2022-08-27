@@ -80,7 +80,7 @@ function main() {
 
     const texture = initTexture(gl);
 
-    const video = setupVideo('https://raw.githubusercontents.com/rocketman123456/WebGL-Learning/master/lesson07/Firefox.mp4');
+    const video = setupVideo('https://jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v');
 
     var then = 0;
 
